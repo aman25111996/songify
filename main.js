@@ -1,5 +1,15 @@
-var button = document.querySelector('.welcome-screen button');
-button.addEventListener('click', function() {
-    var name = document.querySelector('#name-input').value;
-    console.log(name)
+
+
+$('.welcome-screen button').on('click', function() {
+    var name = $('#name-input').val();
+
+    if(name.length > 2) {
+        var message = "Welcome, " +  name;
+        $('.main .user-name').text(message);
+        $('.welcome-screen').addClass('hidden');
+        $('.main').removeClass('hidden');
+    }
+    else {
+        $('#name-input').addClass('error');
+    }
 });
