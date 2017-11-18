@@ -6,13 +6,9 @@
     <title> Song App</title>
     <link rel="stylesheet" type="text/css" href="font-awesome.css">
     <link rel="stylesheet" type="text/css" href="main.css">
-
 </head>
 
 <body>
-<div class="content">
-    <audio src="song.mp3" controls=""></audio>
-</div>
 <div class="wrapper">
     <section class="welcome-screen">
         <h1> Welcome to Songify </h1>
@@ -23,19 +19,44 @@
         </div>
     </section>
     <div class="main hidden">
-        <header> <div class="right floated user-name">  </div> </header>
+        <header>
+            <div class="right floated user-name"> </div>
+        </header>
         <section class="content">
+            <audio src="song1.mp3"></audio>
+            <div class="list-headers">
+                <div> Title </div>
+                <div> Artist </div>
+                <div> Album </div>
+                <div> Duration </div>
+            </div>
+            <div class="song-list">
+                <div class="song">
+                    <span class="song-name"></span>
+                    <span class="song-artist"></span>
+                    <span class="song-album"></span>
+                    <span class="song-length"></span>
+                </div>
+            </div>
         </section>
         <footer>
             <div class="controls">
-                <i class="fa fa-play clickable play-icon" aria-hidden="true"></i>
+                <div class="player-buttons">
+                    <i class="fa fa-play clickable play-icon" aria-hidden="true"></i>
+                </div>
+                <div class="progress-wrapper">
+                    <span class="time-elapsed"> </span>
+                    <div class="player-progress">
+                        <div class="progress-filled"> </div>
+                    </div>
+                    <span class="song-duration"></span>
+                </div>
             </div>
         </footer>
     </div>
 </div>
 <script src="jquery.js"></script>
 <script src="main.js"></script>
-
 </body>
 
 </html>
