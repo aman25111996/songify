@@ -67,11 +67,67 @@ function updateCurrentTime() {
     $('.time-elapsed').text(currentTime);
     $('.song-duration').text(duration);
 }
+var fileNames = ['song1.mp3','song2.mp3','song3.mp3','song4.mp3'];
 
-var songName = 'Tamma Song';
+$('#song1').click(function() {
+    var audio = document.querySelector('audio');
+    var currentSong = audio.src;
+    if(currentSong.search(fileNames[0]) != -1)
+    {
+        toggleSong();
+    }
+    else {
+        audio.src = fileNames[0];
+        toggleSong();
+    }
+});
+
+$('#song2').click(function() {
+    var audio = document.querySelector('audio');
+    var currentSong = audio.src;
+    if(currentSong.search(fileNames[1]) != -1)
+    {
+        toggleSong();
+    }
+    else {
+        audio.src = fileNames[1];
+        toggleSong();
+    }
+});
+
+$('#song3').click(function() {
+    var audio = document.querySelector('audio');
+    var currentSong = audio.src;
+    if(currentSong.search(fileNames[2]) != -1)
+    {
+        toggleSong();
+    }
+    else {
+        audio.src = fileNames[2];
+        toggleSong();
+    }
+});
+
+$('#song4').click(function() {
+    var audio = document.querySelector('audio');
+    var currentSong = audio.src;
+    if(currentSong.search(fileNames[3]) != -1)
+    {
+        toggleSong();
+    }
+    else {
+        audio.src = fileNames[3];
+        toggleSong();
+    }
+});
+
+var songlist = ['Tamma Song','Humma song','Nashe Si Chadh Gayi','The Breakup Song']
 
 window.onload = function() {
-    $('.song-name').text(songName);
+    $('#song1 .song-name').text(songlist[0]);
+    $('#song2 .song-name').text(songlist[1]);
+    $('#song3 .song-name').text(songlist[2]);
+    $('#song4 .song-name').text(songlist[3]);
 
     updateCurrentTime();
     setInterval(function() {
