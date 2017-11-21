@@ -57,10 +57,6 @@ $('#replace-song').on('click', function (){
 
 });
 
-$("#song1").hover(function(){
-    $('.song-lyrics').removeClass('hidden');
-    });
-
 $('.welcome-screen button').on('click', function() {
     var name = $('#name-input').val();
 
@@ -77,6 +73,28 @@ $('.welcome-screen button').on('click', function() {
         $('#error-text').removeClass('hidden');
     }
 });
+
+$("#song1").hover(function(){
+    $('.a').removeClass('hidden');
+}, function(){
+    $('.a').addClass('hidden');
+});
+$("#song2").hover(function(){
+    $('.b').removeClass('hidden');
+}, function(){
+    $('.b').addClass('hidden');
+});
+$("#song3").hover(function(){
+    $('.c').removeClass('hidden');
+}, function(){
+    $('.c').addClass('hidden');
+});
+$("#song4").hover(function(){
+    $('.d').removeClass('hidden');
+}, function(){
+    $('.d').addClass('hidden');
+});
+
 
 $('#logout').click(function(){
     $('.welcome-screen').removeClass('hidden');
@@ -167,12 +185,18 @@ function fetchSongs() {
             setupApp();
             $('.total-songs').text("Songs: " + songs.length);
 
+        },
+        'error': function(data) {
+            alert('Sorry the songs could not be fetched!! Please try again');
+            $('#wait').hide();
         }
+
     }) ;
     $('body').on('keypress',function(event) {
         if (event.keyCode == 32 || event.keyCode == 80 || event.keyCode == 112){
             toggleSong()
         }
+
     });
 
 }
