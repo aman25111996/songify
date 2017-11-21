@@ -107,6 +107,9 @@ $('#logout').click(function(){
 $('.play-icon').on('click',function() {
     toggleSong()
 });
+$('.play-all').on('click',function() {
+    toggleSong()
+});
 function fancyTimeFormat(time)
 {
     // Hours, minutes and seconds
@@ -222,4 +225,6 @@ function setupApp() {
     },1000);
 }
 
+$('.play-all').on('click', function(){
 
+});
