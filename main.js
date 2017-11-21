@@ -64,8 +64,10 @@ $('.welcome-screen button').on('click', function() {
         var message = "Welcome, " +  name;
         $('.main .user-name').text(message);
         $('.welcome-screen').addClass('hidden');
+        // $('.welcome-screen').removeClass('bigslide');
         $('.main').removeClass('hidden');
         fetchSongs() ;
+
 
     }
     else {
@@ -107,9 +109,6 @@ $('#logout').click(function(){
 $('.play-icon').on('click',function() {
     toggleSong()
 });
-$('.play-all').on('click',function() {
-    toggleSong()
-});
 function fancyTimeFormat(time)
 {
     // Hours, minutes and seconds
@@ -137,7 +136,6 @@ function updateCurrentTime() {
     currentTime = fancyTimeFormat(currentTime);
     duration = fancyTimeFormat(duration);
     remainingTime = fancyTimeFormat(remainingTime);
-    console.log(currentTime);
     $('.time-elapsed').text(currentTime);
     $('.song-duration').text(duration);
     $('.time-left').text(remainingTime);
@@ -168,6 +166,7 @@ function addSongNameClickEvent(songObj,position) {
             changeCurrentSongDetails(songObj); // Function Call
         }
     });
+
 
 }
 
@@ -225,6 +224,19 @@ function setupApp() {
     },1000);
 }
 
-$('.play-all').on('click', function(){
 
+$('.play-all').on('click', function(){
+        var audio = document.querySelector('audio');
+        console.log(audio);
+        var currentsong = audio.src;
+        var currentTime = Math.floor(audio.currentTime);
+        var duration = Math.floor(audio.duration);
+        console.log(currentTime);
+        console.log(duration);
+        audio.play();
+        if (currentTime == duration) {
+
+    }
+
+        toggleSong();
 });

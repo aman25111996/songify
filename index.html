@@ -8,17 +8,17 @@
     <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 
-<body>
+<body bgcolor="#1F1F1F">
 
-<div class="wrapper">
-    <section class="welcome-screen ">
-        <h1> Welcome to Songify </h1>
-        <h3> Enter name to access your account </h3>
+<div class="wrapper ">
+    <section class="welcome-screen bigslide">
+        <h1 class="white"> Welcome to Songify </h1>
+        <h3 class="white"> Enter name to access your account </h3>
         <div class="input-wrapper">
                 <input type="text" placeholder="Name" id="name-input" title="Please enter a valid name" autofocus>
             <button> Go </button>
         </div>
-        <p class="hidden" id="error-text">The input name should be minimum of three characters.</p>
+        <p class="hidden white" id="error-text"> Name must have atleast three characters.</p>
     </section>
     <div class="main hidden">
         <header>
@@ -114,7 +114,10 @@
         <footer>
             <div class="controls">
                 <div class="player-buttons">
+                    <div class="rew"></div>
                     <i class="fa fa-play clickable play-icon" aria-hidden="true"></i>
+                    <div class="fwd"></div>
+
                 </div>
                 <div class="progress-wrapper">
                     <span class="time-elapsed"> </span>
