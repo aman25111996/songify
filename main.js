@@ -22,6 +22,8 @@ $('.welcome-screen button').on('click', function() {
         $('.main .user-name').text(message);
         $('.welcome-screen').addClass('hidden');
         $('.main').removeClass('hidden');
+        fetchSongs() ;
+
     }
     else {
         $('#name-input').addClass('error');
@@ -69,65 +71,64 @@ function updateCurrentTime() {
 }
 var fileNames = ['song1.mp3','song2.mp3','song3.mp3','song4.mp3'];
 
-$('#song1').click(function() {
-    var audio = document.querySelector('audio');
-    var currentSong = audio.src;
-    if(currentSong.search(fileNames[0]) != -1)
-    {
-        toggleSong();
-    }
-    else {
-        audio.src = fileNames[0];
-        toggleSong();
-    }
-});
+function changeCurrentSongDetails(songObj) {
+    $('.current-song-image ').attr('src', songObj.image) ;
+    $('.current-song-name').text(songObj.name) ;
+    $('.current-song-album').text(songObj.album) ;
+}
 
-$('#song2').click(function() {
-    var audio = document.querySelector('audio');
-    var currentSong = audio.src;
-    if(currentSong.search(fileNames[1]) != -1)
-    {
-        toggleSong();
-    }
-    else {
-        audio.src = fileNames[1];
-        toggleSong();
-    }
-});
+// make a function for selecting different songs to imply pause and play feature
+function addSongNameClickEvent(songObj,position) {
+    var songName = songObj.fileName; // New Variable
+    var id = '#song' + position;
+    $(id).click(function() {
+        var audio = document.querySelector('audio');
+        console.log(audio);
+        var currentSong = audio.src;
+        if(currentSong.search(songName) != -1)
+        {
+            toggleSong()
+        }
+        else {
+            audio.src = songName;
+            toggleSong()
+            changeCurrentSongDetails(songObj); // Function Call
+        }
+    });
 
-$('#song3').click(function() {
-    var audio = document.querySelector('audio');
-    var currentSong = audio.src;
-    if(currentSong.search(fileNames[2]) != -1)
-    {
-        toggleSong();
-    }
-    else {
-        audio.src = fileNames[2];
-        toggleSong();
-    }
-});
+}
 
-$('#song4').click(function() {
-    var audio = document.querySelector('audio');
-    var currentSong = audio.src;
-    if(currentSong.search(fileNames[3]) != -1)
-    {
-        toggleSong();
-    }
-    else {
-        audio.src = fileNames[3];
-        toggleSong();
-    }
-});
+var songs = [];
 
-var songlist = ['Tamma Song','Humma song','Nashe Si Chadh Gayi','The Breakup Song']
 
-window.onload = function() {
-    $('#song1 .song-name').text(songlist[0]);
-    $('#song2 .song-name').text(songlist[1]);
-    $('#song3 .song-name').text(songlist[2]);
-    $('#song4 .song-name').text(songlist[3]);
+
+function fetchSongs() {
+
+    $.ajax({
+        'url': 'https://jsonbin.io/b/59f713154ef213575c9f652f',
+        'dataType': 'json',
+        'method': 'GET',
+        'success': function (responseData) {
+            // do something with the data here
+            songs = responseData ;
+            setupApp();
+        }
+    }) ;
+
+}
+
+function setupApp() {
+    changeCurrentSongDetails(songs[0]);
+    for(var i =0; i < songs.length;i++) {
+        var obj = songs[i];
+        var name = '#song' + (i+1);
+        var song = $(name);
+        song.find('.song-name').text(obj.name);
+        song.find('.song-artist').text(obj.artist);
+        song.find('.song-album').text(obj.album);
+        song.find('.song-length').text(obj.duration);
+        addSongNameClickEvent(obj,i+1);
+    }
 
     updateCurrentTime();
     setInterval(function() {
