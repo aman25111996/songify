@@ -1,80 +1,105 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title> Song App</title>
-    <link rel="stylesheet" type="text/css" href="font-awesome.css">
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <title>Songify</title>
+    <link class="title-icon" rel="shortcut icon" href="songify.ico" />
+    <link rel="stylesheet" href="main.css">
 </head>
+<body>
+<div class="wrapper">
+    <div style="position:absolute; top:60%; left:49%; display:none; z-index:2000;" id="loader">
+        <img style="width:50px; height:50px;"
+             src="https://gifimage.net/wp-content/uploads/2017/09/ajax-loading-gif-transparent-background-4.gif"/>
+    </div>
 
-<body bgcolor="#1F1F1F">
-
-<div class="wrapper ">
-    <section class="welcome-screen bigslide">
-        <h1 class="white"> Welcome to Songify </h1>
-        <h3 class="white"> Enter name to access your account </h3>
+    <section class="welcome-screen">
+        <h1> Welcome to Songify </h1>
+        <h3> Enter name to access your account </h3>
         <div class="input-wrapper">
-                <input type="text" placeholder="Name" id="name-input" title="Please enter a valid name" autofocus>
-            <button> Go </button>
+            <form >
+                <input type="text" placeholder="Name" id="name-input" autofocus>
+                <button style="border-radius:2px; background-color:white;margin-left:-3px;"> Go </button>
+            </form>
         </div>
-        <p class="hidden white" id="error-text"> Name must have atleast three characters.</p>
+        <p style="color:white; background:black;" class="hidden" id="error-text">The input name should be minimum of three characters.</p>
     </section>
-    <div class="main hidden">
+
+    <section class="main hidden">
         <header>
-            <i id="logout" class="fa fa-sign-out clickable" title="Sign Out" aria-hidden="true"></i>
-            <div class="right floated user-name"> </div>
+            <span><img src="songify.jpg" alt="logo" height="70"></span>
+            <div class="right floated user-name"></div>
+            <div id="logout"> <i class="fa fa-sign-out clickable right floated" title="Sign Out" aria-hidden="true"></i></div>
         </header>
         <section class="content">
-            <audio src="song1.mp3"></audio>
-            <div class="total-songs"></div>
+            <audio src="" ></audio>
             <div class="list-headers">
-                <div> Title </div>
-                <div id="artist"> Artist </div>
-                <div> Album </div>
-                <div> Duration </div>
+                <div class="t"> Title </div>
+                <div class="ar"> Artist </div>
+                <div class="al"> Album </div>
+                <div class="d"> Duration </div>
+                <div class="v"> Video </div>
+                <div class="l"> Lyrics </div>
             </div>
+
             <div class="song-list">
-                <div class="song" id="song1">
+                <div id="song1" class="song">
                     <span class="song-name"></span>
                     <span class="song-artist"></span>
                     <span class="song-album"></span>
                     <span class="song-length"></span>
-                    <span class="song-lyrics hidden a"></span>
-                    <span class="song-video hidden a"></span>
+                    <span class="song-video-link hidden a"></span>
+                    <span class="song-lyrics-link hidden a"></span>
                 </div>
-                <div class="song" id="song2">
+                <div id="song2" class="song">
                     <span class="song-name"></span>
                     <span class="song-artist"></span>
                     <span class="song-album"></span>
                     <span class="song-length"></span>
-                    <span class="song-lyrics hidden b"></span>
-                    <span class="song-video hidden b"></span>
+                    <span class="song-video-link hidden b"></span>
+                    <span class="song-lyrics-link hidden b"></span>
                 </div>
-                <div class="song" id="song3">
+                <div id="song3" class="song">
                     <span class="song-name"></span>
                     <span class="song-artist"></span>
                     <span class="song-album"></span>
                     <span class="song-length"></span>
-                    <span class="song-lyrics hidden c"></span>
-                    <span class="song-video hidden c"></span>
+                    <span class="song-video-link hidden c"></span>
+                    <span class="song-lyrics-link hidden c"></span>
                 </div>
-                <div class="song" id="song4">
+                <div id="song4" class="song">
                     <span class="song-name"></span>
                     <span class="song-artist"></span>
                     <span class="song-album"></span>
                     <span class="song-length"></span>
-                    <span class="song-lyrics hidden d"></span>
-                    <span class="song-video hidden d"></span>
+                    <span class="song-video-link hidden e"></span>
+                    <span class="song-lyrics-link hidden e"></span>
+                </div>
+                <div id="song5" class="song">
+                    <span class="song-name"></span>
+                    <span class="song-artist"></span>
+                    <span class="song-album"></span>
+                    <span class="song-length"></span>
+                    <span class="song-video-link hidden f"></span>
+                    <span class="song-lyrics-link hidden f"></span>
                 </div>
             </div>
-            <div>
-                <audio id="all" src="song1.mp3"></audio>
+
+            <div class="total-songs"></div>
+            <div class="qah">
+                <audio id="all" src=""></audio>
                 <span>Play All: </span>
-                <i class="fa fa-play clickable play-all" aria-hidden="true"></i>
+                <i class="fa fa-play-circle click play-all" aria-hidden="true"></i>
+
             </div>
+
             <div id="submit-song" class="right floated">
-                <span class="larger">Replace Song</span>
+                <span style="font-size:20px; ">Add Song</span>
                 <div class="input-container">
                     <input type="text" id="song-name-input" placeholder="Song Name">
                 </div>
@@ -99,41 +124,38 @@
                 <div class="input-container">
                     <input type="text" id="song-image-input" placeholder="Song Image URL">
                 </div>
-                <div class="input-container button">
-                    <button id="replace-song">Replace Song</button>
+                <div >
+                    <button id="replace-song">Add Song</button>
                 </div>
             </div>
+
             <div class="current-song-wrapper">
-                <img src="img/song1.jpg" class="current-song-image">
+                <img src="" alt="" class="current-song-image">
                 <div>
-                    <p class="current-song-name">Tamma Tamma Again</p>
-                    <p class="current-song-album">Badrinath ki Dulhania</p>
+                    <p class="current-song-name"> </p>
+                    <p class="current-song-album"></p>
                 </div>
             </div>
         </section>
         <footer>
             <div class="controls">
                 <div class="player-buttons">
-                    <div class="rew"></div>
                     <i class="fa fa-play clickable play-icon" aria-hidden="true"></i>
-                    <div class="fwd"></div>
-
                 </div>
                 <div class="progress-wrapper">
                     <span class="time-elapsed"> </span>
-                    <div class="player-progress">
-                        <div class="progress-filled"> </div>
+                    <div id="player-progress">
+                        <div id="progress-filled"> </div>
                     </div>
                     <span class="song-duration"></span>
                 </div>
                 <div class="time-left"></div>
             </div>
         </footer>
-    </div>
+    </section>
 </div>
-<div id="wait" style="display:none;width:69px;height:89px;border:1px solid black;position:absolute;top:50%;left:50%;padding:2px;"><img src='ajax-loader.gif' width="64" height="64" /><br>Loading..</div>
 <script src="jquery.js"></script>
 <script src="main.js"></script>
-</body>
 
+</body>
 </html>

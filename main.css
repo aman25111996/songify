@@ -24,14 +24,6 @@ h1 {
     background-color: #BBB;
 }
 
-.fa-sign-out{
-    font-size: 20px;
-}
-
-.total-songs{
-    margin-bottom: 10px;
-}
-
 .welcome-screen {
     height: 100%;
     width: 100%;
@@ -39,87 +31,58 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-.time-left{
-    text-align: center;
-}
-
-.ajax-loader {
-    visibility: hidden;
-    background-color: rgba(255,255,255,0.7);
-    position: absolute;
-    z-index: +100 !important;
-    width: 100%;
-    height:100%;
+    background: url('http://onehdwallpaper.com/wp-content/uploads/2015/07/Beautiful-Music-HD-Wallpapers.jpg');
+    background-size: cover;
 }
 
-.ajax-loader img {
-    position: relative;
-    top:50%;
-    left:50%;
-}
-.current-song-image{
-    border-radius: 50%;
-    height: 100px;
-    width: 100px;
-}
 .main {
     width: 100%;
-    height: 100%;
+    height: 120%;
     display: flex;
     flex-direction: column;
-    color: white;
-    background-color: #1f1f1f;
+    color: rgba(255,255,255,.9);
+    background: url('https://wallpaper.wiki/wp-content/uploads/2017/05/Black-music-white-piano-classy-HD-Wallpaper.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-
+.fa-sign-out{
+    margin-top: -25px;
+    font-size: 25px;
+}
 .main header {
-    height: 80px;
-    background-color: #282828;
+    height: 100px;
+    background-color: #21242e;
     padding: 1rem;
-    color: #FFF;
+    color: #ff5412;
+    font-size: 22px;
 }
 
 .main .content {
     flex:1;
-    background-color: #1f1f1f;
 }
 
 .main footer {
-    height: 80px;
-    background-color: #282828;
+    margin-top: -25px;
+    height: 100px;
+    background-color: #21242e;
     padding-top: 1rem;
 }
-.bigslide {
-    background-image: url('https://www.solent.ac.uk/courses/undergraduate/popular-music-performance-top-up-ba/years/2016/assets/popular-music-performance-top-up-Cropped-1920x830.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+
 .player-buttons {
     display:flex;
     font-size: 1.5rem;
     justify-content: center;
     align-items: center;
 }
-.white{
-    color: white;
-}
-.input-container{
 
-    margin: 4px 0;
+.player-butt {
+    display:flex;
+    font-size: 1.5rem;
+    justify-content: left;
+    margin-left: 150px;
+}
 
-    height: 28px;
-}
-.input-container > input{
-    width: 200px;
-    border-radius: 2px;
-}
-.button{
-    margin-top: 12px;
-}
-.larger{
-    font-size: larger;
-    margin-bottom: 6px;
-}
 .hidden {
     display: none !important;
 }
@@ -147,21 +110,19 @@ h1 {
     color: #959595;
 }
 
-.player-progress {
+
+#player-progress {
     height: 8px;
     width: 700px;
     background-color: #3d3d3d;
     border-radius: 4px;
     margin-right: 6px;
-    margin-left: 6px;
 }
-
-.progress-filled {
-    background-color: #959595;
+#progress-filled {
+    background-color: #ff5412;
     height: 8px;
     border-radius: 4px;
     width: 0;
-
 }
 
 .main .content {
@@ -174,13 +135,38 @@ h1 {
     border-bottom: 1px solid rgba(255,255,255,0.5);
 }
 
-.list-headers > div {
-    width: 150px;
+.list-headers > .t {
+    width: 250px;
     display: inline-block;
 }
 
-.list-headers > div:first-child {
+.list-headers > .ar {
     width: 200px;
+    display: inline-block;
+}
+
+.list-headers > .al {
+    width: 150px;
+    display: inline-block;
+
+
+}
+.list-headers > .d {
+    width: 100px;
+    display: inline-block;
+
+}
+.list-headers > .v {
+    width: 100px;
+    display: inline-block;
+    margin-left: 90px;
+
+}
+.list-headers > .l {
+    width: 100px;
+    margin-left: 55px;
+    display: inline-block;
+
 }
 
 .song-list .song {
@@ -197,52 +183,39 @@ h1 {
     overflow: hidden;
     height: 1rem;
 }
-.song > span:first-child {
+.song-artist{
     width: 200px;
-    padding-left: 0;
+    margin-left: 50px;
+    text-align: left;
 }
-
-.song > span:last-child {
-    width: 300px;
+.song-album{
+    width: 150px;
+    text-align: left;
+    margin-left: 50px;
 }
-.song > div:nth-last-child(5)-child{
+.song-length {
     width: 100px;
     text-align: center;
 }
-.song-list .song:hover {
-    background-color: #282828;
-}
-.song-album{
+.song-name {
+    width: 250px;
     text-align: left;
 }
-#artist , .song-artist{
-    width: 300px !important;
+.song-video-link {
+    width: 100px;
+    text-align: right;
 }
-.song-length {
-    text-align: left;
+a{
+    color: white;
 }
-.song-name , .song-artist , .song-lyrics, .song-album, .song-length, .song-video, .song-duration {
-    text-align: left;
-    height: 18px !important;
+a:hover{
+    color: #ff5412;
 }
-.song-video {
-    text-align: left;
-    width: 150px !important;
+.song-lyrics-link {
+    width: 100px;
+    text-align: right;
 }
-.song-lyrics{
-    text-align: left;
-    margin-left: 0 !important;
-}
-.song a{
-    text-align: left;
-    display: inline-block;
-    width: 150px;
-    overflow: hidden;
-    height: 1rem;
-    color: #F1F1F1;
-    text-decoration: none;
-    height: 18px !important;
-}
+
 .loader_img{
     width: 100px;
     height: 100px;
@@ -254,8 +227,58 @@ h1 {
     right: 625px;
     top: 100px;
 }
+.current-song-wrapper p{
+    font-size: 17px;
+}
+.current-song-image{
+    height: 100px;
+    width: 100px;
+    margin-right: 1rem;
+}
+.current-song-name{
+    font-size: 1.4rem;
+    margin-top: 4px;
+    margin-bottom: 0;
+}
+.current-song-album{
+    margin-top: 0.4rem;
+}
 .current-song-wrapper{
     margin-left: 210px;
     margin-bottom: -40px;
     margin-top: 80px;
+}
+.time-left{
+    text-align: center;
+}
+.timel{
+    text-align: left;
+    margin-left: 150px;
+}
+
+.input-container{
+    margin-top: 3px;
+    border-style: solid;
+    border-color: #ff5412;
+}
+#submit-song{
+    margin-top: -20px;
+}
+#replace-song{
+    border-style: none !important;
+    margin-top: 5px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 15px;
+    background-color: #ff5412;
+    border: none;
+    box-shadow: none;
+    color: white;
+    font-weight: bolder;
+}
+.total-songs{
+    margin-top: 30px;
+    font-size: 20px;
+}
+.qah {
+    margin-top: 10px;
 }
